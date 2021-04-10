@@ -1,65 +1,66 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react';
+import styled from 'styled-components';
+import { theme, mixins } from '../styles';
+const { colors, fonts } = theme;
 
-export default function Home() {
+const StyledContainer = styled.div`
+  ${mixins.flexCenter};
+  background-color: ${colors.black};
+  background-image: linear-gradient(${colors.black} 0%, ${colors.darkGrey} 100%);
+  color: ${colors.offWhite};
+  height: 100vh;
+
+  form {
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-bottom: 20vh;
+    max-width: 600px;
+    text-align: center;
+    svg {
+      color: ${colors.blue};
+    }
+    label {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin: 2rem;
+    }
+    input {
+      background-color: #26303c;
+      outline: 0;
+      border: 0;
+      border-radius: 0.25rem;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 1rem;
+      color: ${colors.lightblue};
+      font-family: ${fonts.mono};
+      font-size: 2rem;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .submit {
+      ${mixins.blueButton};
+      margin-top: 3rem;
+      filter: none;
+    }
+  }
+`;
+
+const Home = () => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    <main>
+    <StyledContainer>
+      <form>
+        <label htmlFor="username">Find your Github user</label>
+        <input name ="username" type="text"/>
+      </form>
+    </StyledContainer>
+    </main>
   )
 }
+
+export default Home
