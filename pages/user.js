@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { client } from '../utils/client-api';
 import PropTypes from 'prop-types';
+import UserInfo from '../components/UserInfo';
+import mockUserData from '../utils/mockUserData'
 
 const User = props => {
   const username = props.query.id;
@@ -35,6 +37,7 @@ const User = props => {
     });
 
     // mock data on dev to save limit
+    setUserData(mockUserData);
     // getUserData();
 
   }, []);
@@ -42,7 +45,13 @@ const User = props => {
 
   return (
     <main>
-
+      {error && error.active ? (
+        <Error error={error} />
+      ) : (
+        <>
+          {userData && <UserInfo userData={userData} />}
+        </>
+      )}
     </main>
   );
 };
