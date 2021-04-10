@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Router from 'next/router';
 import styled from 'styled-components';
 import { theme, mixins } from '../styles';
 const { colors, fonts } = theme;
@@ -17,9 +18,6 @@ const StyledContainer = styled.div`
     margin-bottom: 20vh;
     max-width: 600px;
     text-align: center;
-    svg {
-      color: ${colors.blue};
-    }
     label {
       display: block;
       font-size: 2.5rem;
@@ -51,14 +49,26 @@ const StyledContainer = styled.div`
 `;
 
 const Home = () => {
+  const [username, setUsername] = useState('');
+  const handleChange = e => setUsername(e.target.value);
+
   return (
     <main>
+
     <StyledContainer>
-      <form>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          Router.push({
+            pathname: '/user',
+            query: { id: username }
+          });
+        }}>
         <label htmlFor="username">Find your Github user</label>
-        <input name ="username" type="text"/>
+        <input name ="username" type="text" onChange={handleChange}/>
       </form>
     </StyledContainer>
+
     </main>
   )
 }

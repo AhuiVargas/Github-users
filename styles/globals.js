@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 const { colors, fonts } = theme;
 
-const GlovalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
   }
@@ -46,4 +46,4 @@ const GlovalStyle = createGlobalStyle`
 
 `;
 
-export default GlovalStyle;
+export default GlobalStyle;
