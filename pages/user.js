@@ -5,7 +5,7 @@ import UserInfo from '../components/UserInfo';
 import { mockUserData } from '../utils'
 
 const User = props => {
-  const username = props.query;
+  const username = props.query.id;
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState({ active: false, type: 200 });
 

@@ -62,14 +62,14 @@ const Home = () => {
         onSubmit={e => {
           e.preventDefault();
           Router.push({
-            pathname: `${option}`,
+            pathname: option,
             query: { id: query }
           });
         }}
         >
         <label htmlFor="username">Find your Github user</label>
         <input name ="username" type="text" onChange={handleChange} list="routeName"/>
-        <select id="routeName" onChange={(e) => handleSelect(e)}>
+        <select className="submit" id="routeName" onChange={(e) => handleSelect(e)}>
           <option value="/user">Search User</option>
           <option value="/repos">Search Repos</option>
         </select>

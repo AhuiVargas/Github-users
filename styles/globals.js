@@ -44,6 +44,25 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: none;
+    transition: ${theme.transition};
+    color: ${colors.blue};
+    display: inline-block;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
 `;
 
 export default GlobalStyle;
