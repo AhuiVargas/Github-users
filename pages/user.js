@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { client } from '../utils/client-api';
+import { client } from '../utils'
 import PropTypes from 'prop-types';
 import UserInfo from '../components/UserInfo';
-import mockUserData from '../utils/mockUserData'
+import { mockUserData } from '../utils'
 
 const User = props => {
-  const username = props.query.id;
+  const username = props.query;
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState({ active: false, type: 200 });
 

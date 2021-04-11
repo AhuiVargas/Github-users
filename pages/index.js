@@ -49,8 +49,10 @@ const StyledContainer = styled.div`
 `;
 
 const Home = () => {
-  const [username, setUsername] = useState('');
-  const handleChange = e => setUsername(e.target.value);
+  const [query, setQuery] = useState('');
+  const [option, setOption] = useState('/user')
+  const handleChange = e => setQuery(e.target.value);
+  const handleSelect = e => setOption(e.target.value);
 
   return (
     <main>
@@ -60,12 +62,17 @@ const Home = () => {
         onSubmit={e => {
           e.preventDefault();
           Router.push({
-            pathname: '/user',
-            query: { id: username }
+            pathname: `${option}`,
+            query: { id: query }
           });
-        }}>
+        }}
+        >
         <label htmlFor="username">Find your Github user</label>
-        <input name ="username" type="text" onChange={handleChange}/>
+        <input name ="username" type="text" onChange={handleChange} list="routeName"/>
+        <select id="routeName" onChange={(e) => handleSelect(e)}>
+          <option value="/user">Search User</option>
+          <option value="/repos">Search Repos</option>
+        </select>
       </form>
     </StyledContainer>
 

@@ -11,4 +11,4 @@ function client(endpoint) {
   })
 }
 
-export { client }
+export default client 
