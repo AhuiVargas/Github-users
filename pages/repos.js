@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { client } from '../utils';
 import PropTypes from 'prop-types';
 import { mockRepoData } from '../utils'
+import RepoInfo from '../components/RepoInfo'
 
 const Repos = props => {
   const repoName = props.query.id;
-  const [repo, setRepoData] = useState(null)
+  const [repoData, setRepoData] = useState(null);
+  const [error, setError] = useState({ active: false, type: 200 });
 
   const getRepoData = () => {
-    client(`search/repositories?q=${repoName}&sort=stars&order=desc`)
+    client(`search/repositories?q=${repoName}`)
     .then(json => {
       console.log(json)
-      setRepo(json)
+      setRepoData(json)
     })
   }
 
@@ -32,7 +34,13 @@ const Repos = props => {
 
   return (
     <main>
-
+      {error && error.active ? (
+        <Error error ={error} />
+      ) : (
+        <>
+          {repoData && <RepoInfo repoData={repoData}/>}
+        </>
+      )}
     </main>
   )
 }
@@ -40,6 +48,5 @@ const Repos = props => {
 Repos.propTypes = {
   query: PropTypes.object
 };
-
 
 export default Repos
