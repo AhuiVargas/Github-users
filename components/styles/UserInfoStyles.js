@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { theme, mixins } from '../../styles';
+import styled from "styled-components";
+import { theme, mixins, media } from "../../styles";
 const { colors, fonts } = theme;
 
 const UserInfoStyles = styled.div`
@@ -7,7 +7,13 @@ const UserInfoStyles = styled.div`
   margin-bottom: 100%;
   text-align: center;
 
+  ${media.bp600`
+    padding-top: 4rem;
+  `};
+  ${mixins.flexCenter};
+
   .avatar {
+    ${mixins.flexCenter};
     margin-bottom: 1.5rem;
     border: 0.5rem solid ${colors.blue};
     border-radius: 100%;
@@ -22,6 +28,9 @@ const UserInfoStyles = styled.div`
     font-size: 2.5rem;
     margin-bottom: 10px;
     color: ${colors.offWhite};
+    ${media.bp400`
+      font-size: 2rem;
+    `};
   }
   h2 {
     font-family: ${fonts.mono};
@@ -29,6 +38,10 @@ const UserInfoStyles = styled.div`
     margin-bottom: 1.5rem;
     a {
       color: ${colors.blue};
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -38,6 +51,9 @@ const UserInfoStyles = styled.div`
 
   .info {
     ${mixins.flexCenter};
+    ${media.bp600`
+      display: block;
+    `};
 
     &_item {
       ${mixins.flexCenter};
@@ -60,10 +76,16 @@ const UserInfoStyles = styled.div`
       padding: 1rem;
       border-radius: 0.25rem;
       text-align: center;
+      ${media.bp400`
+        padding: 1rem 0.5rem;
+      `};
 
       .num {
         color: ${colors.offWhite};
         font-size: 1.5rem;
+        ${media.bp400`
+          font-size: 1rem;
+        `};
       }
       .num-label {
         text-transform: uppercase;
@@ -71,9 +93,12 @@ const UserInfoStyles = styled.div`
         letter-spacing: 1px;
         margin-top: 0.75rem;
         color: rgba(200, 225, 255, 0.7);
+        ${media.bp400`
+          font-size: 0.5rem;
+        `};
       }
     }
   }
 `;
 
-export default UserInfoStyles
+export default UserInfoStyles;

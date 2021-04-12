@@ -63,6 +63,16 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: middle;
   }
 
+  p {
+    line-height: 1.5;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
 `;
 
 export default GlobalStyle;

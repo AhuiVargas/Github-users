@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Section } from "../styles";
 import UserInfoStyles from "./styles/UserInfoStyles";
 
@@ -24,16 +25,16 @@ const UserInfo = ({ userData }) => (
 
         <div className="info">
           {userData.company && (
-            <span className="info_item">{userData.company}</span>
+            <span className="info_item">💼 {userData.company}</span>
           )}
 
           {userData.location && (
-            <span className="info_item">{userData.location}</span>
+            <span className="info_item">📍 {userData.location}</span>
           )}
 
           {userData.created_at && (
             <span className="info_item">
-              Joined{" "}
+            📆 Joined{" "}
               {new Date(userData.created_at).toLocaleString("en-US", {
                 month: "long",
                 day: "numeric",
@@ -63,5 +64,9 @@ const UserInfo = ({ userData }) => (
     )}
   </Section>
 );
+
+UserInfo.propTypes = {
+  userData: PropTypes.object.isRequired,
+};
 
 export default UserInfo;
