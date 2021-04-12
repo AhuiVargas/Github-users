@@ -13,17 +13,18 @@ const StyledContainer = styled.div`
 
   form {
     background-color: transparent;
-    border-radius: 5px;
     padding: 2rem;
-    margin-bottom: 20vh;
+    padding-bottom: 0;
     max-width: 600px;
     text-align: center;
+
     label {
       display: block;
       font-size: 2.5rem;
       font-weight: 500;
       margin: 0.5rem;
     }
+
     input {
       background-color: #26303c;
       outline: 0;
@@ -63,25 +64,24 @@ const Home = () => {
   return (
     <main>
     <StyledContainer>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          Router.push({
-            pathname: option,
-            query: { id: query }
-          });
-        }}
-        >
-        <label htmlFor="username">Find your Github
-        <select id="routeName" onChange={(e) => handleSelect(e)}>
-          <option value="/user">user</option>
-          <option value="/repos">repo</option>
-        </select>.
-        </label>
-        <input name ="username" type="text" onChange={handleChange} list="routeName"/>
-      </form>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            Router.push({
+              pathname: option,
+              query: { id: query }
+            });
+          }}
+          >
+          <label htmlFor="username">Find your Github
+          <select id="routeName" onChange={(e) => handleSelect(e)}>
+            <option value="/user">user</option>
+            <option value="/repos">repo</option>
+          </select>.
+          </label>
+          <input name ="username" type="text" onChange={handleChange} list="routeName"/>
+        </form>
     </StyledContainer>
-
     </main>
   )
 }
