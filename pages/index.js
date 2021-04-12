@@ -62,7 +62,6 @@ const Home = () => {
 
   return (
     <main>
-
     <StyledContainer>
       <form
         onSubmit={e => {

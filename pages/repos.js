@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { client } from '../utils';
 import PropTypes from 'prop-types';
+import { RepoInfo, Error } from '../components'
 import { mockRepoData } from '../utils'
-import RepoInfo from '../components/RepoInfo'
 
 const Repos = props => {
   const repoName = props.query.id;
@@ -11,9 +11,22 @@ const Repos = props => {
 
   const getRepoData = () => {
     client(`search/repositories?q=${repoName}`)
-    .then(json => {
-      console.log(json)
-      setRepoData(json)
+    .then(response => {
+      if (response.status === 404) {
+        return setError({ active: true, type: 404 })
+      }
+      if (response.status === 403) {
+        return setError({ active: true, type: 403 });
+      }
+      // if (response.status === 422) {
+      //   return setError({ active: true, type: 422 });
+      // }
+      return response
+    })
+    .then(json => setRepoData(json))
+    .catch(error => {
+      console.error('Error', error);
+      return setError({ active: true, type: 200 });
     })
   }
 
@@ -26,8 +39,8 @@ const Repos = props => {
     });
 
     // mock data on dev to save limit
-    setRepoData(mockRepoData);
-    // getRepoData()
+    // setRepoData(mockRepoData);
+    getRepoData()
 
   }, [])
 
@@ -35,7 +48,7 @@ const Repos = props => {
   return (
     <main>
       {error && error.active ? (
-        <Error error ={error} />
+        <Error error={error} />
       ) : (
         <>
           {repoData && <RepoInfo repoData={repoData}/>}

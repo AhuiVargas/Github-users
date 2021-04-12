@@ -6,9 +6,6 @@ const UserInfoStyles = styled.div`
   flex-direction: column;
   text-align: center;
 
-  ${media.bp600`
-    padding-top: 4rem;
-  `};
   ${mixins.flexCenter};
 
   .avatar {
