@@ -1,11 +1,17 @@
 import styled, { css } from "styled-components";
-import { theme, media } from "../styles";
+import { theme } from "../styles";
 const { colors } = theme;
 
 const Section = styled.section`
   padding: 3rem 5rem;
 
+    @media (max-width: 900px) {
+      padding: 2rem;
+    }
 
+    @media (max-width: 400px) {
+      padding: 1rem;
+    }
 
   ${(props) =>
     props.dark &&
