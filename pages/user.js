@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { client } from '../utils'
 import PropTypes from 'prop-types';
 import UserInfo from '../components/UserInfo';
-import { mockUserData } from '../utils'
+import RepoInfo from '../components/RepoInfo';
+// import { mockUserData } from '../utils'
 
 const User = props => {
   const username = props.query.id;
   const [userData, setUserData] = useState(null);
+  const [repoData, setRepoData] = useState([]);
   const [error, setError] = useState({ active: false, type: 200 });
 
   const getUserData = () => {
@@ -18,7 +20,6 @@ const User = props => {
       if (response.status === 403) {
         return setError({ active: true, type: 403 });
       }
-      console.log(response)
       return response
     })
     .then(json => setUserData(json))
@@ -28,7 +29,28 @@ const User = props => {
     });
   };
 
+  const getRepoData = () => {
+    client(`users/${username}/repos?per_page=8`)
+    .then(response => {
+      if (response.status === 404) {
+        return setError({ active: true, type: 404 });
+      }
+      if (response.status === 403) {
+        return setError({ active: true, type: 403 });
+      }
+      console.log(response)
+      return response
+    })
+    .then(json => setRepoData(json))
+    .catch(error => {
+      console.error('Error', error);
+    })
+  }
+
   useEffect(() => {
+    if (usename === undefined) {
+      return
+    }
     client('rate_limit')
     .then(json => {
       if (json.resources.core.remaining < 1) {
@@ -37,8 +59,9 @@ const User = props => {
     });
 
     // mock data on dev to save limit
-    setUserData(mockUserData);
-    // getUserData();
+    // setUserData(mockUserData);
+    getUserData();
+    getRepoData();
 
   }, []);
 
@@ -50,6 +73,8 @@ const User = props => {
       ) : (
         <>
           {userData && <UserInfo userData={userData} />}
+
+          {repoData && <RepoInfo repoData={repoData} />}
         </>
       )}
     </main>

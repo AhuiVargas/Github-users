@@ -4,7 +4,6 @@ const { colors, fonts } = theme;
 
 const UserInfoStyles = styled.div`
   flex-direction: column;
-  margin-bottom: 100%;
   text-align: center;
 
   ${media.bp600`

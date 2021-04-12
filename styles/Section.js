@@ -10,7 +10,6 @@ const Section = styled.section`
     css`
       background-color: ${colors.black};
       color: ${colors.lightestBlue};
-      padding-bottom: 10rem;
     `};
 
   & > div {

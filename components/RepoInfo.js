@@ -38,6 +38,36 @@ const RepoInfo = ({ repoData }) => (
               </li>
             ))}
           </ul>
+        ) : repoData.length ? (
+          <ul>
+            {repoData.map((repo) => (
+              <li key={repo.id}>
+                <a
+                  href={repo.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="repo"
+                >
+                  <div className="repo_top">
+                    <div className="repo_name">
+                      <h3>📘{repo.name}</h3>
+                    </div>
+                    <p>{repo.description}</p>
+                  </div>
+                  <div className="repo_stats">
+                    <div className="repo_stats-left">
+                      <span>{repo.language} </span>
+                      <span>⭐{repo.stargazers_count.toLocaleString()}</span>
+                      <span>🍴{repo.forks.toLocaleString()}</span>
+                    </div>
+                    <div className="repo_stats-right">
+                      <span>{repo.size.toLocaleString()} KB</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
         ) : (
           <p>No available repositories!</p>
         )}

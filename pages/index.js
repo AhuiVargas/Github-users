@@ -22,7 +22,7 @@ const StyledContainer = styled.div`
       display: block;
       font-size: 2.5rem;
       font-weight: 500;
-      margin: 2rem;
+      margin: 0.5rem;
     }
     input {
       background-color: #26303c;
@@ -40,10 +40,16 @@ const StyledContainer = styled.div`
       text-align: center;
     }
 
-    .submit {
-      ${mixins.blueButton};
-      margin-top: 3rem;
-      filter: none;
+    select {
+      background-color: #26303c;
+      color: ${colors.offWhite};
+      height: 3rem;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
+      -moz-appearance: none;
+      appearance: none;
+      border: none;
     }
   }
 `;
@@ -67,12 +73,13 @@ const Home = () => {
           });
         }}
         >
-        <label htmlFor="username">Find your Github user</label>
+        <label htmlFor="username">Find your Github
+        <select id="routeName" onChange={(e) => handleSelect(e)}>
+          <option value="/user">user</option>
+          <option value="/repos">repo</option>
+        </select>.
+        </label>
         <input name ="username" type="text" onChange={handleChange} list="routeName"/>
-        <select className="submit" id="routeName" onChange={(e) => handleSelect(e)}>
-          <option value="/user">Search User</option>
-          <option value="/repos">Search Repos</option>
-        </select>
       </form>
     </StyledContainer>
 
