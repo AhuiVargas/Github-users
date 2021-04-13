@@ -1,4 +1,5 @@
 import React from "react";
+import Router from 'next/router';
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import IconGitHub from "./icons/github";
@@ -25,6 +26,7 @@ const ErrorStyles = styled.div`
     &:hover,
     &:focus {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
   svg {
@@ -57,6 +59,10 @@ const Error = ({ error }) => (
         )}
       </div>
     )}
+    <a onClick={e => {
+      e.preventDefault();
+      Router.back()
+    }}>Go back!</a>
   </ErrorStyles>
 );
 

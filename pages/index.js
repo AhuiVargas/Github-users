@@ -45,7 +45,7 @@ const StyledContainer = styled.div`
 
     select {
       background-color: #26303c;
-      color: ${colors.offWhite};
+      color: ${colors.lightblue};
       height: 3rem;
       font-size: 2.5rem;
       font-weight: 500;

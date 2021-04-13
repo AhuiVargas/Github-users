@@ -1,16 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Github API Demo
 
-## Getting Started
+This project consumes some of Githubs API endpoints to display users data in a nice way.
+###### psst! I hope you're using the Github dark theme for this one.
+
+Also, the requests per hour are limited in this API without authentication, so take it easy with those searches.
+
+*You can check the docs here [https://docs.github.com/rest](https://docs.github.com/es/rest)*
+
+### Live now on Vercel! [github-users-ahuivargas.vercel.app](https://github-users-ahuivargas.vercel.app/)
+
+## Screenshot
+
+![screenshot](/public/Screenshot.png "Cool!, right?")
+
+## Stack
+
+* [React](https://github.com/facebook/react)
+* [NextJS](https://github.com/vercel/next.js)
+* [Styled Components](https://github.com/styled-components/styled-components)
+
+## Usage and installation
 
 First, run the development server:
 
-```bash
+```
 npm run dev
-# or
+or
 yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 

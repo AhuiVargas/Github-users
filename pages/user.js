@@ -55,7 +55,6 @@ const User = props => {
       }
     });
 
-    
     getUserData();
     getRepoData();
 
