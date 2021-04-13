@@ -6,7 +6,6 @@ const StyledForm = styled.form`
   background-color: ${colors.black};
   padding: 2rem;
   padding-bottom: 0;
-  max-width: 600px;
   text-align: center;
   label {
     display: block;

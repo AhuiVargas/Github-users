@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
+import IconGitHub from '../components/icons/github';
 import { theme, mixins } from '../styles';
 const { colors, fonts } = theme;
 
@@ -23,6 +24,7 @@ const StyledContainer = styled.div`
       font-size: 2.5rem;
       font-weight: 500;
       margin: 0.5rem;
+      margin-top: 2rem;
     }
 
     input {
@@ -52,6 +54,12 @@ const StyledContainer = styled.div`
       appearance: none;
       border: none;
     }
+
+    svg {
+      color: ${colors.blue};
+      fill: currentColor;
+      margin-top: -17rem;
+    }
   }
 `;
 
@@ -73,6 +81,7 @@ const Home = () => {
             });
           }}
           >
+          <IconGitHub />
           <label htmlFor="username">Find your Github
           <select id="routeName" onChange={(e) => handleSelect(e)}>
             <option value="/user">user</option>
