@@ -52,17 +52,15 @@ const Error = ({ error }) => (
             </a>
             ! Try again later.
           </p>
-        ) : error.type === 404 ? (
-          <p>Results not found!</p>
         ) : (
-          <p>Something went wrong. Try again later!</p>
+          <p>Oops! didn't find any results.</p>
         )}
       </div>
     )}
     <a onClick={e => {
       e.preventDefault();
       Router.back()
-    }}>Go back!</a>
+    }}>Try again!</a>
   </ErrorStyles>
 );
 
