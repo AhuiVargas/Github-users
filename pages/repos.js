@@ -3,7 +3,7 @@ import { client } from '../utils';
 import PropTypes from 'prop-types';
 import { RepoInfo, Error } from '../components'
 import StyledForm from '../components/styles/FormStyles';
-import { mockRepoData } from '../utils'
+// import { mockRepoData } from '../utils'
 
 const Repos = props => {
   const repoName = props.query.id;
@@ -37,9 +37,10 @@ const Repos = props => {
       }
     });
 
+    getRepoData()
+
     // mock data on dev to save limit
     // setRepoData(mockRepoData);
-    getRepoData()
 
   }, [])
 
@@ -55,7 +56,7 @@ const Repos = props => {
             e.preventDefault()
             getRepoData()
           }}>
-            <input name="username" type="text" onChange={handleChange} placeholder="Search repo"/>
+            <input name="username" type="text" onChange={handleChange} placeholder="Search repo" autoComplete="off"/>
           </StyledForm>
 
           {repoData && <RepoInfo repoData={repoData}/>}

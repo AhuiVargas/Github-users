@@ -88,7 +88,7 @@ const Home = () => {
             <option value="/repos">repo</option>
           </select>.
           </label>
-          <input name ="username" type="text" onChange={handleChange} list="routeName"/>
+          <input name ="username" type="text" onChange={handleChange} list="routeName" autoComplete="off"/>
         </form>
     </StyledContainer>
     </main>

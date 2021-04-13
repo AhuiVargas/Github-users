@@ -3,7 +3,7 @@ import { client } from '../utils'
 import PropTypes from 'prop-types';
 import { UserInfo, RepoInfo, Error } from '../components';
 import StyledForm from '../components/styles/FormStyles';
-import { mockUserData, mockUserRepoData } from '../utils'
+// import { mockUserData, mockUserRepoData } from '../utils'
 
 const User = props => {
   const username = props.query.id;
