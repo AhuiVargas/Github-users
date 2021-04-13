@@ -77,7 +77,7 @@ const User = props => {
             getUserData();
             getRepoData();
           }}>
-            <input name="username" type="text" onChange={handleChange} placeholder="Search user"/>
+            <input name="username" type="text" onChange={handleChange} placeholder="Search user" autoComplete="off"/>
           </StyledForm>
 
           {userData && <UserInfo userData={userData} />}

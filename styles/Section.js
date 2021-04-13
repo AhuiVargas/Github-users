@@ -19,10 +19,6 @@ const Section = styled.section`
       background-color: ${colors.black};
       color: ${colors.lightestBlue};
     `};
-
-  & > div {
-    max-width: 1400px;
-  }
 `;
 
 export default Section;
